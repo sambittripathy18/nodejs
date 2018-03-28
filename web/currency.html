@@ -11,6 +11,16 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Simple Price Manager</title>
+
+    <style>
+        .cyan {
+            background-color: #00bcd4 !important;
+        }
+
+        .cyan.darken-1 {
+            background-color: #00acc1 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,13 +38,34 @@
                 <a class="navbar-text nav-item nav-link fa fa-tags fa-lg">&nbsp;Tags</a>
                 <a class="navbar-text nav-item nav-link fa fa-pencil fa-lg">&nbsp;Adjustments</a>
                 <a class="navbar-text nav-item nav-link fa fa-globe fa-lg">&nbsp;Domains</a>
-                <a class="navbar-text nav-item nav-link fa fa-bar-chart fa-lg">&nbsp;Analytics</a>
             </div>
         </div>
     </nav>
 
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 10px;">
+        <div class="row">
+            <div class="col-sm">
+
+                <div class="card text-center" style="width: 18rem;">
+
+                    <div class="card-body cyan text-white">
+                        <p class="card-text">
+                            <span class="fa fa-line-chart"></span>&nbsp;Price Requests</p>
+                        <h4 class="card-title">
+                            433</h4>
+                    </div>
+                    <ul class="list-group list-group-flush text-white">
+                        <li class="list-group-item cyan darken-1">
+                                <canvas id="myChart" height="30"></canvas>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
 
     </div>
 
@@ -46,6 +77,43 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Green", "Purple", "Orange"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 13, 15, 12, 13,15,16,17],
+                    backgroundColor: [
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)',
+                        'rgba(255,255,255, 1)'
+                    ]
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{ display: false }],
+                    yAxes: [{
+                        display: false
+
+                    }]
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
